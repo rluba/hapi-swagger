@@ -386,6 +386,35 @@ lab.experiment('plugin', () => {
     });
 
 
+    lab.test('shold not maintain tags between requests through of tags querystring', (done) => {
+
+        Helper.createServer({}, routes, (err, server) => {
+
+            expect(err).to.equal(null);
+            server.inject({ method: 'GET', url: '/documentation?tags=reduced' }, function (response) {
+
+                expect(response.statusCode).to.equal(200);
+                expect(response.result).to.contain('swagger.json?tags=reduced');
+
+                server.inject({ method: 'GET', url: '/documentation' }, function (response) {
+
+                    expect(response.statusCode).to.equal(200);
+                    expect(response.result).to.not.contain('swagger.json?tags=reduced');
+
+                    server.inject({ method: 'GET', url: '/documentation?tags=other' }, function (response) {
+
+                        expect(response.statusCode).to.equal(200);
+                        expect(response.result).to.contain('swagger.json?tags=other');
+                        expect(response.result).to.not.contain('swagger.json?tags=reduced');
+                        done();
+                    });
+                });
+            });
+
+        });
+    });
+
+
 
 
 
