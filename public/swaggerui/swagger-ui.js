@@ -5821,19 +5821,19 @@ module.exports.schemaToHTML =function (name, schema, models, modelPropertyMacro)
       break;
     case 'integer':
     case 'number':
-      if (schema.minimum) {
+      if (schema.minimum !== undefined) {
         options += optionHtml('Min. Value', schema.minimum);
       }
 
-      if (schema.exclusiveMinimum) {
+      if (schema.exclusiveMinimum !== undefined) {
         options += optionHtml('Exclusive Min.', 'true');
       }
 
-      if (schema.maximum) {
+      if (schema.maximum !== undefined) {
         options += optionHtml('Max. Value', schema.maximum);
       }
 
-      if (schema.exclusiveMaximum) {
+      if (schema.exclusiveMaximum !== undefined) {
         options += optionHtml('Exclusive Max.', 'true');
       }
 
@@ -6367,10 +6367,10 @@ SwaggerSpecConverter.prototype.dataType = function(source, target) {
     return;
   }
 
-  if(source.minimum) {
+  if(source.minimum !== undefined) {
     target.minimum = source.minimum;
   }
-  if(source.maximum) {
+  if(source.maximum !== undefined) {
     target.maximum = source.maximum;
   }
   if (source.format) {
@@ -24421,19 +24421,19 @@ SwaggerUi.partials.signature = (function () {
         break;
       case 'integer':
       case 'number':
-        if (schema.minimum) {
+        if (schema.minimum !== undefined) {
           options += optionHtml('Min. Value', schema.minimum);
         }
 
-        if (schema.exclusiveMinimum) {
+        if (schema.exclusiveMinimum !== undefined) {
           options += optionHtml('Exclusive Min.', 'true');
         }
 
-        if (schema.maximum) {
+        if (schema.maximum !== undefined) {
           options += optionHtml('Max. Value', schema.maximum);
         }
 
-        if (schema.exclusiveMaximum) {
+        if (schema.exclusiveMaximum !== undefined) {
           options += optionHtml('Exclusive Max.', 'true');
         }
 
