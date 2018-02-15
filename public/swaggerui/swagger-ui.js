@@ -5825,7 +5825,7 @@ module.exports.schemaToHTML =function (name, schema, models, modelPropertyMacro)
         options += optionHtml('Min. Value', schema.minimum);
       }
 
-      if (schema.exclusiveMinimum !== undefined) {
+      if (schema.exclusiveMinimum) {
         options += optionHtml('Exclusive Min.', 'true');
       }
 
@@ -5833,7 +5833,7 @@ module.exports.schemaToHTML =function (name, schema, models, modelPropertyMacro)
         options += optionHtml('Max. Value', schema.maximum);
       }
 
-      if (schema.exclusiveMaximum !== undefined) {
+      if (schema.exclusiveMaximum) {
         options += optionHtml('Exclusive Max.', 'true');
       }
 
@@ -24425,7 +24425,7 @@ SwaggerUi.partials.signature = (function () {
           options += optionHtml('Min. Value', schema.minimum);
         }
 
-        if (schema.exclusiveMinimum !== undefined) {
+        if (schema.exclusiveMinimum) {
           options += optionHtml('Exclusive Min.', 'true');
         }
 
@@ -24433,7 +24433,7 @@ SwaggerUi.partials.signature = (function () {
           options += optionHtml('Max. Value', schema.maximum);
         }
 
-        if (schema.exclusiveMaximum !== undefined) {
+        if (schema.exclusiveMaximum) {
           options += optionHtml('Exclusive Max.', 'true');
         }
 
