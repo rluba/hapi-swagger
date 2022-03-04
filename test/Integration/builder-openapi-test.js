@@ -142,7 +142,9 @@ lab.experiment('builder', () => {
         type: 'object',
         properties: {
           number: {
-            type: 'number'
+            type: 'number',
+            exclusiveMinimum: true,
+            minimum: 10,
           },
           string: {
             type: 'string'
@@ -177,6 +179,8 @@ lab.experiment('builder', () => {
         properties: {
           number: {
             type: 'number',
+            exclusiveMinimum: true,
+            minimum: 10,
             'x-constraint': {
               greater: 10
             }

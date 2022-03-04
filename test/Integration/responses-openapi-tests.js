@@ -816,7 +816,8 @@ lab.experiment('responses', () => {
               content: {
                 'application/json': {
                   schema: {
-                    $ref: '#/components/schemas/Sum'
+                    $ref: '#/components/schemas/Sum',
+                    description: 'json body for sum'
                   }
                 }
               }
@@ -875,7 +876,8 @@ lab.experiment('responses', () => {
               content: {
                 'application/json': {
                   schema: {
-                    $ref: '#/components/schemas/Sum'
+                    $ref: '#/components/schemas/Sum',
+                    description: 'json body for sum'
                   }
                 }
               }

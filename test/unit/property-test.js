@@ -489,10 +489,14 @@ versions.forEach((version) => {
         // x-* mappings
         expect(propertiesAlt.parseProperty('x', Joi.number().greater(10), null, 'body', true, true)).to.equal({
           type: 'number',
+          exclusiveMinimum: true,
+          minimum: 10,
           'x-constraint': { greater: 10 }
         });
         expect(propertiesAlt.parseProperty('x', Joi.number().less(10), null, 'body', true, true)).to.equal({
           type: 'number',
+          exclusiveMaximum: true,
+          maximum: 10,
           'x-constraint': { less: 10 }
         });
         expect(propertiesAlt.parseProperty('x', Joi.number().precision(2), null, 'body', true, true)).to.equal({
@@ -514,7 +518,9 @@ versions.forEach((version) => {
 
         // test options.xProperties = false
         expect(propertiesNoAlt.parseProperty('x', Joi.number().greater(10), null, 'body', true, false)).to.equal({
-          type: 'number'
+          type: 'number',
+          exclusiveMinimum: true,
+          minimum: 10,
         });
       });
 
