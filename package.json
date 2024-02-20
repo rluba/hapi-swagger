@@ -40,10 +40,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test:cov:html": "lab -r html -o coverage.html -I '__core-js_shared__,regeneratorRuntime,core,CSS,Symbol(undici.globalDispatcher.1)'",
-    "precommit": "pnpm test",
     "postversion": "pnpm publish",
-    "postpublish": "git push origin --all; git push origin --tags",
-    "prepare": "is-ci || husky install"
+    "postpublish": "git push origin --all; git push origin --tags"
   },
   "license": "MIT",
   "engines": {
@@ -76,7 +74,6 @@
     "eslint-config-prettier": "^9.0.0",
     "hapi-auth-bearer-token": "^8.0.0",
     "hapi-auth-jwt2": "^10.4.0",
-    "husky": "^8.0.3",
     "is-ci": "^3.0.1",
     "joi": "^17.11.0",
     "js2xmlparser": "^5.0.0",
